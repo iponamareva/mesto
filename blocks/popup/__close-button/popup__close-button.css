@@ -21,11 +21,3 @@
         right: calc(50vw - 150px);
     }
 }
-
-
-.popup__close-button:hover,
-.popup__close-button:focus {
-  opacity: 0.6;
-  text-decoration: none;
-  cursor: pointer;
-}
