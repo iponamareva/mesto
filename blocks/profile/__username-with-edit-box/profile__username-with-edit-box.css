@@ -1,0 +1,5 @@
+.profile__username-with-edit-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}

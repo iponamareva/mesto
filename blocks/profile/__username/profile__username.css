@@ -1,0 +1,21 @@
+.profile__username {
+    margin: 0;
+    font-size: 42px;
+    line-height: 48px;
+}
+
+/* custom breakpoint - font size + padding changes */
+@media (max-width: 768px) {
+    .profile__username {
+        padding-left: 28px;
+        font-size: 36px;
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 520px) {
+    .profile__username {
+        font-size: 27px;
+        line-height: 33px;
+    }
+}

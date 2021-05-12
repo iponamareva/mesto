@@ -1,0 +1,28 @@
+.footer {
+    margin: 0 auto 60px;
+    max-width: 880px;
+}
+
+/* custom breakpoint - fixed margins */
+@media (max-width: 1024px) {
+    .footer {
+        margin-left: 72px;
+        margin-right: 72px;
+    }
+}
+
+/* custom breakpoint - gallery changes */
+@media (max-width: 618px) {
+    .footer {
+        margin-left: 27px;
+        margin-right: 27px;
+        margin-bottom: 36px;
+    }
+}
+
+@media (max-width: 320px) {
+    .footer {
+        margin-left: 19px;
+        margin-right: 19px;
+    }
+}
