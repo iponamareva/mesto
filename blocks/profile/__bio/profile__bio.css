@@ -1,7 +1,7 @@
 .profile__bio {
     margin: 0;
     margin-top: 16px;
-
+    font-weight: 400;
     font-size: 18px;
     line-height: 21.78px;
 }
