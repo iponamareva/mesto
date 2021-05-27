@@ -1,0 +1,13 @@
+.header__logo {
+   margin: 0;
+}
+
+/* custom breakpoint - gallery changes */
+@media (max-width: 618px) {
+    .header__logo {
+        margin-left: 27px;
+        width: 104px;
+        height: 24px;
+        object-fit: cover;
+    }
+}

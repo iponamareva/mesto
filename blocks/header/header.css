@@ -18,7 +18,9 @@
 /* custom breakpoint - gallery changes */
 @media (max-width: 618px) {
     .header {
-        margin-left: 27px;
-        margin-right: 27px;
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 28px;
+        padding-bottom: 32px;
     }
 }
