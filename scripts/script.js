@@ -25,6 +25,7 @@ function submitFormHandler(evt) {
     evt.preventDefault();
     username.textContent = updUsername.value;
     bio.textContent = updBio.value;
+    closePopup();
 }
 
 formElement.addEventListener('submit', submitFormHandler);

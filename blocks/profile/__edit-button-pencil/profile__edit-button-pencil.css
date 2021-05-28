@@ -1,3 +1,10 @@
 .profile__edit-button-pencil {
+  margin: 6px;
+}
 
+
+@media (max-width: 768px) {
+    .profile__edit-button-pencil {
+        margin: 3px;
+    }
 }
