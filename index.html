@@ -18,11 +18,27 @@
                     <h2 class="popup__title">Редактировать профиль</h2>
 
                     <form class="popup__form" name="change-info">
-                        <!-- <label for="username">Имя</label> -->
                         <input name="username" type="text" id="username" class="popup__input popup__input_type_username" value="Жак-Ив Кусто" />
-                        <!-- <label for="bio">Описание</label> -->
                         <input name="bio" type="text" id="bio" class="popup__input popup__input_type_bio" value="Исследователь океана" />
+                        
                         <button class="popup__save-button" type="submit">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="add-popup">
+                <div class="add-popup__container">
+                    <button class="add-popup__close-button" type="button">
+                        <img class="add-popup__close-btn-image" src="images/close-btn.svg" alt="Крестик">
+                    </button>
+                    <h2 class="add-popup__title">Новое место</h2>
+
+                    <form class="add-popup__form" name="add-place">
+                        
+                        <input name="place-name" type="text" id="place-name" class="add-popup__input add-popup__input_type_place-name" placeholder="Название" />
+                        <input name="img-link" type="text" id="img-link" class="add-popup__input add-popup__input_type_img-link" placeholder="Ссылка на картинку"/>
+                        
+                        <button class="add-popup__submit-button" type="submit">Создать</button>
                     </form>
                 </div>
             </div>

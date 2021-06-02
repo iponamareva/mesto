@@ -1,0 +1,23 @@
+.add-popup__input {
+    display: block;
+    border: none;
+    border-bottom: 1px solid rgba(1,1,1,0.2);
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 17px;
+    width: 358px;
+    padding-bottom: 13px;
+}
+
+@media (max-width: 618px) {
+    .add-popup__input {
+        width: 238px;
+    }
+}
+
+.add-popup__input:focus {
+    /* outline: 2px solid blue; */
+}
+.add-popup__input:first-child {
+   margin-bottom: 30px;
+}
