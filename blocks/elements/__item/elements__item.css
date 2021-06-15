@@ -1,5 +1,6 @@
 .elements__item {
     /* border-radius: 10%; */
+    position: relative;
     display: flex;
     flex-direction: column;
 }
