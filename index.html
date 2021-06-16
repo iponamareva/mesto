@@ -18,8 +18,8 @@
                     <h2 class="popup__title">Редактировать профиль</h2>
 
                     <form class="popup__form" name="change-info">
-                        <input name="username" type="text" id="username" class="popup__input popup__input_type_username" value="Жак-Ив Кусто" />
-                        <input name="bio" type="text" id="bio" class="popup__input popup__input_type_bio" value="Исследователь океана" />
+                        <input name="username" type="text" id="username" class="popup__input popup__input_type_username" placeholder="Имя пользователя" required/>
+                        <input name="bio" type="text" id="bio" class="popup__input popup__input_type_bio" placeholder="Описание профиля" required/>
                         <button class="popup__save-button" type="submit">Сохранить</button>
                     </form>
                 </div>
@@ -34,8 +34,8 @@
                     <h2 class="popup__title">Новое место</h2>
 
                     <form class="popup__form" name="add-place">
-                        <input name="place-name" type="text" id="place-name" class="popup__input popup__input_type_place-name" placeholder="Название" />
-                        <input name="img-link" type="text" id="img-link" class="popup__input popup__input_type_img-link" placeholder="Ссылка на картинку"/>
+                        <input name="place-name" type="text" id="place-name" class="popup__input popup__input_type_place-name" placeholder="Название" required/>
+                        <input name="img-link" type="text" id="img-link" class="popup__input popup__input_type_img-link" placeholder="Ссылка на картинку" required/>
                         <button class="popup__submit-button" type="submit">Создать</button>
                     </form>
                 </div>
@@ -48,7 +48,7 @@
                         <img class="popup__close-btn-image" src="images/close-btn.svg" alt="Крестик">
                     </button>
 
-                    <img class="popup__image">
+                    <img class="popup__image" src="#" alt="Пустое изображение">
                     <h2 class="popup__place-name"></h2>
                 </div>
             </div>

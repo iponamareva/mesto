@@ -52,14 +52,27 @@ const initialCards = [
 const cardTemplate = document.querySelector('#card').content;
 const cardsRendered = document.querySelector('.elements');
 
+function createCard(link, name) {
+    const newCardElement = cardTemplate.querySelector('.elements__item').cloneNode(true);
+    newCardElement.querySelector('.elements__item-image').src = link;
+    newCardElement.querySelector('.elements__item-image').alt = name;
+    newCardElement.querySelector('.elements__item-name').textContent = name;
+    return newCardElement;
+}
+
+function addCard(link, name) {
+    const newCardElement = createCard(link, name);
+    addSingleELs(newCardElement);
+    cardsRendered.append(newCardElement);
+}
+
 function renderInitialCards() {
     console.log('LOG: rendering initial cards');
     for (let i = 0; i < initialCards.length; i += 1) {
-        const newCardElement = cardTemplate.querySelector('.elements__item').cloneNode(true);
-        newCardElement.querySelector('.elements__item-image').src = initialCards[i].link;
-        newCardElement.querySelector('.elements__item-image').alt = initialCards[i].name;
-        newCardElement.querySelector('.elements__item-name').textContent = initialCards[i].name;
-        cardsRendered.append(newCardElement);
+        const link = initialCards[i].link;
+        const name = initialCards[i].name;
+        
+        addCard(link, name); 
     }
 }
 
@@ -82,20 +95,6 @@ function openImage(image) {
     openPopup(imagePopup);
 }
 
-// навесить обработчик elFunc на элементы определенного типа className
-function addELsForElems(className, elFunc) {
-    const elems = document.querySelectorAll(className);
-    for (let i = 0; i < elems.length; i += 1) {
-        elems[i].addEventListener('click', () => elFunc(elems[i]));
-    }
-}
-
-function addELs() {
-    addELsForElems('.elements__like-button', toggleLike);
-    addELsForElems('.elements__delete-button', deleteCard);
-    addELsForElems('.elements__item-image', openImage);
-}
-
 // навесить обработчики на элементы новой карточки
 function addSingleELs(newCardElement) {
     const newLikeButton = newCardElement.querySelector('.elements__like-button');
@@ -108,14 +107,14 @@ function addSingleELs(newCardElement) {
 
 
 function openPopup(popup) {
-    if (popup.classList.contains('popup_type_edit')) {
-        console.log("LOG: edit popup opened");
-        updUsername.value = username.textContent;
-        updBio.value = bio.textContent;
-    } else if (popup.classList.contains('popup_type_add')) {
-        console.log('LOG: add popup opened');
-    }
     popup.classList.add('popup_opened');
+}
+
+function openAndFillEditPopup() {
+    console.log("LOG: edit popup opened");
+    updUsername.value = username.textContent;
+    updBio.value = bio.textContent;
+    openPopup(editPopup);
 }
 
 function closePopup(popup) {
@@ -140,6 +139,7 @@ function submitAddFormHandler(evt) {
     cardsRendered.prepend(newCardElement);
     addSingleELs(newCardElement);
     
+    addFormElement.reset();
     closePopup(addPopup);
     console.log('LOG: new card added, add popup closed');
 }
@@ -149,7 +149,7 @@ editFormElement.addEventListener('submit', submitEditFormHandler);
 addFormElement.addEventListener('submit', submitAddFormHandler);
 
 // open/close popups
-editButton.addEventListener('click', () => openPopup(editPopup));
+editButton.addEventListener('click', openAndFillEditPopup);
 closeEditButton.addEventListener('click', () => closePopup(editPopup));
 addButton.addEventListener('click', () => openPopup(addPopup));
 closeAddButton.addEventListener('click', () => closePopup(addPopup));
@@ -157,4 +157,3 @@ closeImageButton.addEventListener('click', () => closePopup(imagePopup));
 
 // render initial cards and add event listeners for them
 renderInitialCards();
-addELs();
