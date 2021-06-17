@@ -63,12 +63,12 @@ function createCard(link, name) {
 
 function addCard(link, name) {
     const newCardElement = createCard(link, name);
-    cardsRendered.append(newCardElement);
+    cardsRendered.prepend(newCardElement);
 }
 
 function renderInitialCards() {
     console.log('LOG: rendering initial cards');
-    for (let i = 0; i < initialCards.length; i += 1) {
+    for (let i = initialCards.length - 1; i >= 0; i -= 1) {
         const link = initialCards[i].link;
         const name = initialCards[i].name;
         
