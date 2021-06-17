@@ -57,12 +57,12 @@ function createCard(link, name) {
     newCardElement.querySelector('.elements__item-image').src = link;
     newCardElement.querySelector('.elements__item-image').alt = name;
     newCardElement.querySelector('.elements__item-name').textContent = name;
+    addSingleELs(newCardElement);
     return newCardElement;
 }
 
 function addCard(link, name) {
     const newCardElement = createCard(link, name);
-    addSingleELs(newCardElement);
     cardsRendered.append(newCardElement);
 }
 
@@ -131,14 +131,9 @@ function submitEditFormHandler(evt) {
 
 function submitAddFormHandler(evt) {
     evt.preventDefault();
-    const newCardElement = cardTemplate.querySelector('.elements__item').cloneNode(true);
-    newCardElement.querySelector('.elements__item-image').src = newImgLink.value;
-    newCardElement.querySelector('.elements__item-image').alt = newPlaceName.value;
-    newCardElement.querySelector('.elements__item-name').textContent = newPlaceName.value;
-    
-    cardsRendered.prepend(newCardElement);
-    addSingleELs(newCardElement);
-    
+    const link = newImgLink.value;;
+    const name = newPlaceName.value;
+    addCard(link, name);
     addFormElement.reset();
     closePopup(addPopup);
     console.log('LOG: new card added, add popup closed');
