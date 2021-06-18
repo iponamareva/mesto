@@ -82,9 +82,9 @@ function toggleLike(likeButton) {
 }
 
 function deleteCard(deleteButton) {
-    const listItem = deleteButton.closest('.elements__item');
-    listItem.remove();
-    console.log('delete button pressed');
+    const card = deleteButton.closest('.elements__item');
+    removeSingleELs(card);
+    card.remove();
 }
 
 function openImage(image) {
@@ -103,6 +103,16 @@ function addSingleELs(newCardElement) {
     newDeleteButton.addEventListener('click', () => deleteCard(newDeleteButton));
     const newImage = newCardElement.querySelector('.elements__item-image');
     newImage.addEventListener('click', () => openImage(newImage));
+}
+
+// снять 
+function removeSingleELs(cardElement) {
+  const likeButton = cardElement.querySelector('.elements__like-button');
+  likeButton.removeEventListener('click', () => toggleLike(newLikeButton));
+  const deleteButton = cardElement.querySelector('.elements__delete-button');
+  deleteButton.removeEventListener('click', () => deleteCard(newDeleteButton));
+  const image = cardElement.querySelector('.elements__item-image');
+  image.removeEventListener('click', () => openImage(newImage));
 }
 
 
@@ -139,6 +149,26 @@ function submitAddFormHandler(evt) {
     console.log('LOG: new card added, add popup closed');
 }
 
+function closeAllPopups() {
+  closePopup(editPopup);
+  closePopup(addPopup);
+  closePopup(editPopup);
+}
+
+function escKeyHandler(evt) {
+  if (evt.key === 'Escape') {
+    console.log('Esc pressed: closing popups');
+    closeAllPopups();
+  }
+}
+
+function overlayClosePopup(evt) {
+  if (evt.target.classList.contains('popup')) {
+    console.log('overlay click: closing popups');
+    closeAllPopups();
+  }
+}
+
 // submit form handlers
 editFormElement.addEventListener('submit', submitEditFormHandler);
 addFormElement.addEventListener('submit', submitAddFormHandler);
@@ -150,5 +180,7 @@ addButton.addEventListener('click', () => openPopup(addPopup));
 closeAddButton.addEventListener('click', () => closePopup(addPopup));
 closeImageButton.addEventListener('click', () => closePopup(imagePopup));
 
-// render initial cards and add event listeners for them
+document.addEventListener('keydown', (evt) => escKeyHandler(evt));
+document.addEventListener('click', (evt) => overlayClosePopup(evt));
+
 renderInitialCards();

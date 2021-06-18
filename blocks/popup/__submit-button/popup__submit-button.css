@@ -21,3 +21,8 @@
     opacity: 0.8;
     cursor: pointer;
 }
+
+.popup__submit-button:disabled {
+    opacity: 1.0;
+    cursor: auto;
+}

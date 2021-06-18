@@ -1,0 +1,4 @@
+.popup__input_type_error {
+    /* Underline field with error */
+    border-bottom-color: red;
+}
