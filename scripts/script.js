@@ -22,6 +22,8 @@ const addButton = document.querySelector(".profile__add-button");
 const closeAddButton = addPopup.querySelector(".popup__close-button");
 const closeImageButton = imagePopup.querySelector(".popup__close-button");
 
+const submitAddButton = addFormElement.querySelector('.popup__submit-button');
+
 const initialCards = [
     {
       name: 'Архыз',
@@ -133,17 +135,19 @@ function openEditProfilePopup() {
     openPopup(editPopup);
 }
 
-function cleanFormIfNeeded(popup) {
-  if (popup.classList.contains('popup_type_new-card')) {
-    addFormElement.reset();
-    hidePopupErrors(popup, validationConfig);
-  }
+function cleanAddForm() {
+  addFormElement.reset();
+  hidePopupErrors(addPopup, validationConfig);
+}
+
+function openAddCardPopup() {
+  cleanAddForm();
+  openPopup(addPopup);
 }
 
 function closePopup(popup) {
     document.removeEventListener('keydown', escKeyHandler);
     document.removeEventListener('click', overlayClosePopup);
-    cleanFormIfNeeded(popup);
     popup.classList.remove('popup_opened');
 }
 
@@ -161,16 +165,9 @@ function submitAddFormHandler(evt) {
     addCard(link, name);
     addFormElement.reset();
 
-    const submitButton = addFormElement.querySelector('.popup__submit-button');
-    deactivateButton(submitButton, validationConfig);
-    
-    closePopup(addPopup);
-}
+    deactivateButton(submitAddButton, validationConfig);
 
-function closeAllPopups() {
-  closePopup(editPopup);
-  closePopup(addPopup);
-  closePopup(imagePopup);
+    closePopup(addPopup);
 }
 
 function findAndCloseOpenedPopup() {
@@ -197,7 +194,7 @@ addFormElement.addEventListener('submit', submitAddFormHandler);
 // open/close popups
 editButton.addEventListener('click', openEditProfilePopup);
 closeEditButton.addEventListener('click', () => closePopup(editPopup));
-addButton.addEventListener('click', () => openPopup(addPopup));
+addButton.addEventListener('click', openAddCardPopup);
 closeAddButton.addEventListener('click', () => closePopup(addPopup));
 closeImageButton.addEventListener('click', () => closePopup(imagePopup));
 
