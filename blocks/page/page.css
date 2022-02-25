@@ -3,4 +3,5 @@
     color: white;
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     padding-bottom: 24px;
+    min-height: 100vh;
 }

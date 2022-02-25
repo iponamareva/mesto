@@ -70,9 +70,14 @@ const editFormValidator = new FormValidator(validationConfig, editFormElement);
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 
-function addCard(data) {
+function createCard(data) {
     const card = new Card(data, '#card');
-    const newCardElement = card.generateCard();
+    const cardElement = card.generateCard();
+    return cardElement
+}
+
+function addCard(data) {
+    const newCardElement = createCard(data)
     cardsList.prepend(newCardElement);
 }
 
@@ -84,8 +89,8 @@ function renderInitialCards() {
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-    document.addEventListener('keydown', escKeyHandler);
-    document.addEventListener('click', overlayClosePopup);
+    document.addEventListener('keydown', handleEscKey);
+    document.addEventListener('click', handleOverlayClick);
 }
 
 function openEditProfilePopup() {
@@ -106,19 +111,19 @@ function openAddCardPopup() {
 }
 
 function closePopup(popup) {
-    document.removeEventListener('keydown', escKeyHandler);
-    document.removeEventListener('click', overlayClosePopup);
+    document.removeEventListener('keydown', handleEscKey);
+    document.removeEventListener('click', handleOverlayClick);
     popup.classList.remove('popup_opened');
 }
 
-function submitEditFormHandler(evt) {
+function handleProfileEditFormSubmit(evt) {
     evt.preventDefault();
     username.textContent = inputName.value;
     bio.textContent = inputBio.value;
     closePopup(editPopup);
 }
 
-function submitAddFormHandler(evt) {
+function handleProfileAddFormSubmit(evt) {
     evt.preventDefault();
     
     addCard({
@@ -126,30 +131,25 @@ function submitAddFormHandler(evt) {
         name : inputCardName.value}
         );
     addFormElement.reset();
-    // deactivateButton(submitAddButton, validationConfig);
+    addFormValidator.deactivateButton();
     closePopup(addPopup);
 }
 
-function findAndCloseOpenedPopup() {
-  const openedPopup = document.querySelector('.popup_opened');
-  closePopup(openedPopup);
-}
-
-function escKeyHandler(evt) {
+function handleEscKey(evt) {
   if (evt.key === 'Escape') {
     findAndCloseOpenedPopup();
   }
 }
 
-function overlayClosePopup(evt) {
+function handleOverlayClick(evt) {
   if (evt.target.classList.contains('popup')) {
-    findAndCloseOpenedPopup();
+    closePopup(evt.target);
   }
 }
 
 // submit form handlers
-editFormElement.addEventListener('submit', submitEditFormHandler);
-addFormElement.addEventListener('submit', submitAddFormHandler);
+editFormElement.addEventListener('submit', handleProfileEditFormSubmit);
+addFormElement.addEventListener('submit', handleProfileAddFormSubmit);
 
 // open/close popups
 editButton.addEventListener('click', openEditProfilePopup);
