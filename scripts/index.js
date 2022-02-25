@@ -100,6 +100,11 @@ function openEditProfilePopup() {
     openPopup(editPopup);
 }
 
+function findAndCloseOpenedPopup() {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+
 function cleanAddForm() {
   addFormElement.reset();
   addFormValidator.hidePopupErrors();

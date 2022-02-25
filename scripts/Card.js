@@ -15,14 +15,15 @@ export class Card {
 
     generateCard() {
         this._element = this._getTemplate();
-
+        
         this._cardImage = this._element.querySelector('.elements__item-image');
+        this._cardTitle = this._element.querySelector('.elements__item-name');
         this._likeButton = this._element.querySelector('.elements__like-button');
         this._deleteButton = this._element.querySelector('.elements__delete-button');
 
         this._cardImage.src = this._image;
         this._cardImage.alt = this._text;
-        this._cardImage.textContent = this._text;
+        this._cardTitle.textContent = this._text;
 
         this._setEventListeners();
 
@@ -46,7 +47,6 @@ export class Card {
     }
 
     _setEventListeners() {
-        console.log('222', this._likeButton);
         this._likeButton.addEventListener('click', () => this._toggleLike());
         this._deleteButton.addEventListener('click', () => this._deleteCard());
         this._cardImage.addEventListener('click', () => this._openImage());
