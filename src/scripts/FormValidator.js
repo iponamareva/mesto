@@ -1,4 +1,4 @@
-export class FormValidator {
+export default class FormValidator {
 
     constructor(validationConfig, formElement) {
         this._validationConfig = validationConfig;
@@ -36,7 +36,6 @@ export class FormValidator {
           return !inputElement.validity.valid;
         })
     };
-
 
     _activateButton = () => {
         this._buttonElement.classList.remove(this._validationConfig.inactiveButtonClass);
@@ -79,6 +78,5 @@ export class FormValidator {
         this._inputList.forEach((inputElement) => {
           this._hideInputError(inputElement);
         });
-      }
-
+    }
 }
