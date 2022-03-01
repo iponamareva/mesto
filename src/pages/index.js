@@ -1,38 +1,5 @@
 import './index.css';
 
-// import addButtonPng from "../images/add-button.png";
-// import addButtonSvg from "../images/add-button.svg";
-// import closeButtonSvg from "../images/close-btn.svg";
-// import editButtonPng from "../images/edit-button.png";
-// import jeaqueJpg from "../images/jeaque.jpg";
-// import likeActivePng from "../images/like-active.png";
-// import likeActiveSvg from "../images/like-active.svg";
-// import likeSvg from "../images/like.svg";
-// import logoPng from "../images/logo.png";
-// import logoSvg from "../images/logo.svg";
-// import pencilSvg from "../images/pencil.svg";
-// import plusSvg from "../images/plus.svg";
-// import trashSvg from "../images/trash.svg";
-
-// const imgsList = [
-//     {name: "add-button.png", image: addButtonPng},
-//     {name: "add-button.svg", image: addButtonSvg},
-//     {name: "close-btn.svg", image: closeButtonSvg},
-//     {name: "edit-button.png", image: editButtonPng},
-//     {name: "jeaque.jpg", image: jeaqueJpg},
-//     {name: "like-active.png", image: likeActivePng},
-//     {name: "like-active.svg", image: likeActiveSvg},
-//     {name: "like.svg", image: likeSvg},
-//     {name: "logo.png", image: logoPng},
-//     {name: "logo.svg", image: logoSvg},
-//     {name: "pencil.svg", image: pencilSvg},
-//     {name: "plus.svg", image: plusSvg},
-//     {name: "trash.svg", image: trashSvg}
-// ]
-
-
-
-
 import {
     initialCards,
     validationConfig,

@@ -12,7 +12,7 @@
             <div class="popup popup_type_edit">
                 <div class="popup__container">
                     <button class="popup__close-button" type="button">
-                        <img class="popup__close-btn-image" src="images/close-btn.svg" alt="Крестик">
+                        <img class="popup__close-btn-image" src="<%=require('./images/close-btn.svg')%>" alt="Крестик">
                     </button>
                     <h2 class="popup__title">Редактировать профиль</h2>
 
@@ -32,7 +32,7 @@
             <div class="popup popup_type_new-card">
                 <div class="popup__container">
                     <button class="popup__close-button" type="button">
-                        <img class="popup__close-btn-image" src="images/close-btn.svg" alt="Крестик">
+                        <img class="popup__close-btn-image" src="<%=require('./images/close-btn.svg')%>" alt="Крестик">
                     </button>
                     <h2 class="popup__title">Новое место</h2>
 
@@ -52,7 +52,7 @@
             <div class="popup popup_type_image">
                 <div class="popup__image-container">
                     <button class="popup__close-button" type="button">
-                        <img class="popup__close-btn-image" src="images/close-btn.svg" alt="Крестик">
+                        <img class="popup__close-btn-image" src="<%=require('./images/close-btn.svg')%>" alt="Крестик">
                     </button>
 
                     <img class="popup__image" src="#" alt="Пустое изображение">
@@ -61,18 +61,19 @@
             </div>
 
             <header class="header">
-                <img class="header__logo" src="images/logo.svg" alt="Логотип" />
+                <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип" />
             </header>
 
             <main class="content">
                 <section class="profile">
                     <div class="profile__container">
-                        <img class="profile__image" src="images/jeaque.jpg" alt="Владелец профиля" />
+                        <!-- <img class="profile__image" src="images/jeaque.jpg" alt="Владелец профиля" /> -->
+                        <img src="<%=require('./images/jeaque.jpg')%>" alt=“Владелец профиля” class="profile__image">
                         <div class="profile__info">
                             <div class="profile__username-with-edit-box">
                                 <h1 class="profile__username">Жак-Ив Кусто</h1>
                                 <button class="profile__edit-button" type="button">
-                                    <img class="profile__edit-button-pencil" src="images/pencil.svg" alt="Карандаш" />
+                                    <img class="profile__edit-button-pencil" src="<%=require('./images/pencil.svg')%>" alt="Карандаш" />
                                 </button>
                             </div>
                             <p class="profile__bio">Исследователь океана</p>
@@ -80,7 +81,7 @@
                     </div>
 
                     <button class="profile__add-button" type="button">
-                        <img class="profile__add-button-plus" src="images/plus.svg" alt="Плюс" />
+                        <img class="profile__add-button-plus" src="<%=require('./images/plus.svg')%>" alt="Плюс" />
                     </button>
                 </section>
 
@@ -97,7 +98,7 @@
         <template id="card">
             <div class="elements__item">
                 <button class="elements__delete-button" type="button">
-                    <img class="elements__delete-btn-image" src="images/trash.svg" alt="Ведро">
+                    <img class="elements__delete-btn-image" src="<%=require('./images/trash.svg')%>" alt="Ведро">
                 </button>
 
                 <img class="elements__item-image"/>
