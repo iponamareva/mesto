@@ -1,0 +1,12 @@
+.elements__like-number {
+    background-color: transparent;
+    margin: 0;
+    margin-top: 3px;
+    color: black;
+    width: 10px;
+    height: 13px;
+    line-height: 16px;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}

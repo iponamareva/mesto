@@ -8,6 +8,10 @@ export default class Section {
         this._container = document.querySelector(containerSelector);
     }
 
+    setItems(items) {
+        this._items = items;
+    }
+
     renderItems() {
         // Содержит публичный метод, который отвечает за отрисовку всех элементов.
         // Отрисовка каждого отдельного элемента должна осуществляться функцией renderer

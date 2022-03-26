@@ -60,6 +60,40 @@
                 </div>
             </div>
 
+            <!-- CONFIRM DELETE POPUP -->
+            <div class="popup popup_type_confirm-delete">
+                <div class="popup__container">
+                    <button class="popup__close-button" type="button">
+                        <img class="popup__close-btn-image" src="<%=require('./images/close-btn.svg')%>" alt="Крестик">
+                    </button>
+
+                    <h2 class="popup__title">Вы уверены?</h2>
+
+                    <form class="popup__form" name="confirm-delete">
+                        <button class="popup__submit-button" type="submit">Да</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- EDIT AVATAR POPUP -->
+            <div class="popup popup_type_edit-avatar">
+                <div class="popup__container">
+                    <button class="popup__close-button" type="button">
+                        <img class="popup__close-btn-image" src="<%=require('./images/close-btn.svg')%>" alt="Крестик">
+                    </button>
+
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <form class="popup__form" name="edit-avatar">
+                        <input id="avatar-link-input" name="avatar-link" type="url" class="popup__input popup__input_type_avatar-link" placeholder="Ссылка на аватар" required/>
+                        <span class="popup__avatar-link-input-error  popup__input-error"></span>
+
+                        <button class="popup__submit-button" type="submit">Сохранить</button>
+                    </form>
+
+                </div>
+            </div>
+
+
             <header class="header">
                 <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип" />
             </header>
@@ -68,7 +102,13 @@
                 <section class="profile">
                     <div class="profile__container">
                         <!-- <img class="profile__image" src="images/jeaque.jpg" alt="Владелец профиля" /> -->
-                        <img src="<%=require('./images/jeaque.jpg')%>" alt=“Владелец профиля” class="profile__image">
+                        <div class="profile__image-container">
+                            <img src="<%=require('./images/jeaque.jpg')%>" alt=“Владелец профиля” class="profile__image">
+                            <div class="profile__avatar-overlay">
+                                <img class="profile__edit-avatar-pencil" src="<%=require('./images/pencil.svg')%>" alt="Карандаш" />
+                            </div>
+                        </div>
+                        
                         <div class="profile__info">
                             <div class="profile__username-with-edit-box">
                                 <h1 class="profile__username">Жак-Ив Кусто</h1>
@@ -104,7 +144,11 @@
                 <img class="elements__item-image"/>
                 <div class="elements__title-box">
                     <h2 class="elements__item-name"></h2>
-                    <button class="elements__like-button" type="button"></button>
+                    <div class="elements__like-box">
+                        <button class="elements__like-button" type="button"></button>
+                        <p class="elements__like-number">7</p>
+                    </div>
+                    
                 </div>
             </div>
         </template>

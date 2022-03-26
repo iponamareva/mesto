@@ -1,4 +1,4 @@
-const initialCards = [
+const defaultCards = [
     {
       name: 'Архыз',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,6 +25,15 @@ const initialCards = [
     }
   ];
 
+const apiConfig = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-37',
+  profileInfoUrl: 'https://nomoreparties.co/v1/cohort-37/users/me',
+  headers: {
+    authorization: '7ae4e44a-1e3d-4937-ae0d-b0936ca5e318',
+    'Content-Type': 'application/json'
+  }
+}
+
 const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -36,5 +45,6 @@ const validationConfig = {
 
 const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
+const avatarButton = document.querySelector(".profile__avatar-overlay");
 
-export { initialCards, validationConfig, editButton, addButton }
+export { defaultCards, validationConfig, editButton, addButton, avatarButton, apiConfig }
