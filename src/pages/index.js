@@ -21,10 +21,14 @@ const api = new Api(apiConfig);
 // setting up form validation
 const addFormElement = document.querySelector(".popup_type_new-card").querySelector('.popup__form');
 const editFormElement = document.querySelector(".popup_type_edit").querySelector('.popup__form');
+const editAvatarFormElement = document.querySelector(".popup_type_edit-avatar").querySelector('.popup__form');
 const addFormValidator = new FormValidator(validationConfig, addFormElement);
 const editFormValidator = new FormValidator(validationConfig, editFormElement);
+const editAvatarFormValidator = new FormValidator(validationConfig, editAvatarFormElement);
+
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
+editAvatarFormValidator.enableValidation();
 
 // creating and filling UserInfo object
 const userInfo = new UserInfo(".profile__username", ".profile__bio", ".profile__image");
@@ -57,7 +61,7 @@ function createCard(data) {
             handleDeleteButtonClick: (cardId, cardElement) => {
                 console.log(cardId);
                 confirmPopup.open();
-                confirmPopup.setHandledArguments(cardId, cardElement);
+                confirmPopup.setHandledArguments({cardId, cardElement});
             }
         }
     );
@@ -75,15 +79,11 @@ const section = new Section(
 api.getInitialCards()
 .then((res) => {
     section.setItems(res);
+    section.renderItems();
 })
 .catch((res) => {
     console.log(`Error loading cards: ${res}`);
 })
-.finally(() => {
-    section.renderItems();
-});
-
-
 
 const handleFormSubmit = {
     // action on edit form submit: uses Api to update data on server
@@ -115,6 +115,7 @@ const handleFormSubmit = {
         .then((res) => {
             const card = createCard(res);
             section.addItem(card);
+            addPopup.close();
         })
         .catch(res => {console.log(res)});
         
@@ -125,13 +126,17 @@ const handleFormSubmit = {
         api.updateAvatar(inputObj["avatar-link"])
         .then((res) => {
             userInfo.setAvatar({link: res.avatar});
+            editAvatarForm.close();
         })
         .catch(res => console.log(res))
     },
 
-    confirmDeleteForm: (cardId, cardElement) => {
+    confirmDeleteForm: ({cardId, cardElement}) => {
         api.deleteCard(cardId)
-        .then(res => cardElement.remove())
+        .then(res => {
+            cardElement.remove();
+            confirmPopup.close();
+        })
         .catch(res => console.log(res));
     }
 }
@@ -150,6 +155,14 @@ avatarPopup.setEventListeners();
 confirmPopup.setEventListeners();
 
 editButton.addEventListener('click', () => {
+    editPopup.setInputValues([{
+        inputSelector: '.popup__input_type_username',
+        value: userInfo.name
+    },
+    {
+        inputSelector: '.popup__input_type_bio',
+        value: userInfo.bio
+    }]);
     editPopup.open();
     editFormValidator.deactivateButton();
 });

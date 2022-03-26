@@ -8,16 +8,14 @@ export default class PopupWithConfirm extends Popup {
         this.handleFormSubmit = handleFormSubmit;
     }
 
-    setHandledArguments(arg1, arg2) {
-        this._arg1 = arg1;
-        this._arg2 = arg2;
+    setHandledArguments(args) {
+        this._args = args;
     }
 
     setEventListeners() {
         this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this.handleFormSubmit(this._arg1, this._arg2);
-            this.close();
+            this.handleFormSubmit(this._args);
         });
         super.setEventListeners();
     }

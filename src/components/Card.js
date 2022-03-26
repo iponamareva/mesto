@@ -75,14 +75,6 @@ export default class Card {
         }
     }
 
-    _deleteCard() {
-        this._handleDelete(this._id)
-        .then(res => {
-            this._element.remove();
-        })
-        .catch(res => {console.log(res)});
-    }
-
     _openImage() {
         this._handleCardClick({image: this._image, text: this._text});
     }

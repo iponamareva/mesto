@@ -17,6 +17,9 @@ export default class UserInfo {
 
     setUserInfo({username, bio, avatar, id, cohort}) {
         this.id = id;
+        this.name = username;
+        this.bio = bio;
+        
         this._usernameElement.textContent = username;
         this._bioElement.textContent = bio;
         this._cohort = cohort;
